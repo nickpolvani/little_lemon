@@ -9,7 +9,7 @@ function Footer() {
             <img src={Logo} alt="Logo" />
         </div>
       <div className="footer-section">
-        <h4>Doormat Navigation</h4>
+        <h3>Doormat Navigation</h3>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
@@ -20,17 +20,16 @@ function Footer() {
         </ul>
       </div>
       <div className="footer-section">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <p>Address</p>
         <p>Phone number</p>
         <p>Email</p>
       </div>
       <div className="footer-section">
-        <h4>Social Media Links</h4>
+        <h3>Social Media Links</h3>
         <p>Address</p>
         <p>Phone number</p>
         <p>Email</p>
-        {/* Here you would typically have social media icons linking to respective profiles */}
       </div>
     </footer>
   );
