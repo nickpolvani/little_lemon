@@ -1,5 +1,5 @@
 /* grid layout with 2 columns, 1 per article */
-.call-to-action {
+/* .call-to-action {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5em;
@@ -36,4 +36,4 @@ p {
     font-weight: bold;
     padding: 1em 1em;
     max-width: fit-content;
-}
+} */

@@ -1,7 +1,7 @@
 import React from 'react';
 import CallToAction from "./CallToAction";
 import Specials from "./Specials";
-// import CustomersSay from "./CustomersSay";
+import Testimonials from "./Testimonials";
 // import Description from "./Description";
 
 
@@ -12,8 +12,8 @@ function HomePage() {
 
             <CallToAction />
             <Specials />
-            {/* <CustomersSay />
-            <Description /> */}
+            <Testimonials/>
+            
         </>
     );
 }

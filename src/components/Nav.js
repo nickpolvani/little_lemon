@@ -1,32 +1,47 @@
 import Logo from '../images/Logo.svg'
-import '../style/Nav.css';
+import { Flex, Link, Image, HStack} from '@chakra-ui/react';
+
+
+
+function NavLink({ children, href }) {
+    return (
+        <Link
+            href={href}
+            fontSize="lg"
+            fontWeight="bold"
+            color="black"
+            textDecoration="none"
+            _hover={{ color: "blue" }}
+        >
+            {children}
+        </Link>
+    );
+}
+
 
 function Nav() {
     return (
-        <nav className='nav'>
-            <ul className="nav-links">
-                <img src={Logo} alt="Logo" className='nav-logo' />
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/">About</a>
-                </li>
-                <li>
-                    <a href="/"> Menu</a>
-                </li>
-                <li>
-                    <a href="/"> Reservations</a>
-                </li>
-                <li>
-                    <a href="/"> Order Online</a>
-                </li>
-                <li>
-                    <a href="/"> Login</a>
-                </li>
-            </ul>
-        </nav>
+        <Flex
+            as="nav"
+            align="center"
+            wrap="wrap"
+            gap="2rem"
+            padding="1rem"
+            bg="white"
+            color="black"
+            boxShadow="md"
+        >
+            <Image src={Logo} alt="Logo" />
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/">About</NavLink>
+            <NavLink href="/"> Menu</NavLink>
+            <NavLink href="/"> Reservations</NavLink>
+            <NavLink href="/"> Order Online</NavLink>
+            <NavLink href="/"> Login</NavLink>
+        </Flex>
     );
 }
+
+export { Nav, NavLink };
 
 export default Nav;

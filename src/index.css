@@ -4,7 +4,12 @@ body {
 }
 
 /* Apply Markazi Text to all headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Markazi Text', serif;
 }
 
@@ -20,11 +25,4 @@ img {
 
 button {
   border-radius: 16px;
-}
-
-
-
-
-.CardTitle {
-  font: size 18pt, weight bold;
 }

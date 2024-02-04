@@ -2,7 +2,10 @@
 import GreekSaladImg from "../images/greek_salad.jpg";
 import BruschettaImg from "../images/bruschetta.jpg";
 import LemonDessertImg from "../images/lemon_dessert.jpg";
-import "../style/Specials.css";
+
+import CustomButton from "./CustomButton";
+import { Card, CardHeader, CardBody, CardFooter, Image } from '@chakra-ui/react'
+import { VStack, HStack, Flex } from "@chakra-ui/react";
 
 const specials = [
     {
@@ -34,28 +37,67 @@ const specials = [
 
 
 function Specials() {
+
+
+    function SpecialsCard({ special }) {
+        return (
+            <Card
+                w="15rem"
+                padding="1rem"
+                spacing="1rem"
+                borderRadius={16}
+                backgroundColor={"#EDEFEE"}
+                _hover={{
+                    transform: 'scale(1.05)', // Enlarge card by 5%
+                    zIndex: 10, // Ensure the card is above others when it's enlarged
+                    boxShadow: 'lg' // Optional: apply a larger shadow for better focus on hover
+                }}
+                transition="transform 0.3s ease"
+            >
+                <CardBody
+                >
+                    <VStack>
+                        <Image
+                            height="10rem"
+                            width={"100%"}
+                            objectFit="cover"
+                            src={special.img}
+                            alt={special.name} />
+                        <HStack
+                            spacing="1em">
+                            <h2>{special.name}</h2>
+                            <CardHeader color="orange">${special.price}</CardHeader>
+                        </HStack>
+                        <CardFooter>{special.description}</CardFooter>
+                    </VStack>
+                </CardBody>
+            </Card>
+        );
+    }
+
     return (
-        <section className="specials">
-            <div className="specials-banner">
+
+        <VStack spacing={4}
+            alignItems="center"
+            padding="0.25rem"
+            borderRadius={8}
+            boxShadow="md"
+            margin="2em">
+            <HStack
+                spacing={8}
+                justifyContent="space-between"
+                width="95%"
+            >
                 <h2>Specials</h2>
-                <button>Online Menu</button>
-            </div>
-            <div className="specials-container">
-                {specials.map((special) => {
-                    return (
-                        <article className="specials-item" key={special.id}>
-                            <img src={special.img} alt={special.name} />
-                            <div className="specials-title-price">
-                                <h3>{special.name}</h3>
-                                <p className="price">{special.price}</p>
-                            </div>
-                            <p>{special.description}</p>
-                            <a href="#" className="order-link">Order a delivery</a>
-                        </article>
-                    )
-                })}
-            </div>
-        </section>
+                <CustomButton>Online Menu</CustomButton>
+            </HStack>
+            <Flex direction={["column", "row"]} wrap="wrap" align="stretch" gap={"2rem"}>
+                {specials.map((special) => (
+                    <SpecialsCard key={special.id} special={special} />
+                ))}
+            </Flex>
+        </VStack>
+
     )
 };
 
