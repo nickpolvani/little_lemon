@@ -2,7 +2,7 @@ import React from 'react';
 import CallToAction from "./CallToAction";
 import Specials from "./Specials";
 import Testimonials from "./Testimonials";
-// import Description from "./Description";
+import Description from "./Description";
 
 
 
@@ -12,8 +12,9 @@ function HomePage() {
 
             <CallToAction />
             <Specials />
-            <Testimonials/>
-            
+            <Testimonials />
+            <Description />
+
         </>
     );
 }

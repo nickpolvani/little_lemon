@@ -5,7 +5,7 @@ import LemonDessertImg from "../images/lemon_dessert.jpg";
 
 import CustomButton from "./CustomButton";
 import { Card, CardHeader, CardBody, CardFooter, Image } from '@chakra-ui/react'
-import { VStack, HStack, Flex } from "@chakra-ui/react";
+import { VStack, HStack, Flex, Heading } from "@chakra-ui/react";
 
 const specials = [
     {
@@ -42,9 +42,9 @@ function Specials() {
     function SpecialsCard({ special }) {
         return (
             <Card
-                w="15rem"
-                padding="1rem"
-                spacing="1rem"
+                w="18rem"
+                padding="0.5rem"
+                spacing="0.5rem"
                 borderRadius={16}
                 backgroundColor={"#EDEFEE"}
                 _hover={{
@@ -65,7 +65,7 @@ function Specials() {
                             alt={special.name} />
                         <HStack
                             spacing="1em">
-                            <h2>{special.name}</h2>
+                            <CardHeader fontWeight={"bold"}>{special.name}</CardHeader>
                             <CardHeader color="orange">${special.price}</CardHeader>
                         </HStack>
                         <CardFooter>{special.description}</CardFooter>
@@ -88,7 +88,7 @@ function Specials() {
                 justifyContent="space-between"
                 width="95%"
             >
-                <h2>Specials</h2>
+                <Heading>Specials</Heading>
                 <CustomButton>Online Menu</CustomButton>
             </HStack>
             <Flex direction={["column", "row"]} wrap="wrap" align="stretch" gap={"2rem"}>
