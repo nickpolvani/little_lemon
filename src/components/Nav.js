@@ -35,7 +35,7 @@ function Nav() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/">About</NavLink>
             <NavLink href="/"> Menu</NavLink>
-            <NavLink href="/"> Reservations</NavLink>
+            <NavLink href="/booking"> Reservations</NavLink>
             <NavLink href="/"> Order Online</NavLink>
             <NavLink href="/"> Login</NavLink>
         </Flex>

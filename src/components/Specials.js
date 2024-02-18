@@ -64,7 +64,7 @@ function Specials() {
                             src={special.img}
                             alt={special.name} />
                         <HStack
-                            spacing="1em">
+                            spacing="0.25rem">
                             <CardHeader fontWeight={"bold"}>{special.name}</CardHeader>
                             <CardHeader color="orange">${special.price}</CardHeader>
                         </HStack>

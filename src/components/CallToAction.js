@@ -38,7 +38,7 @@ function CallToAction() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </Text>
                     {/* </CardBody> */}
-                    <CustomButton> Reserve a Table</CustomButton>
+                    <CustomButton href="/booking"> Reserve a Table</CustomButton>
                 </VStack>
                 <Box w="80%" position="relative"> {/* Adjust the width as necessary */}
                     <Image
