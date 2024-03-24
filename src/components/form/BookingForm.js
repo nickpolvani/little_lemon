@@ -37,15 +37,15 @@ function BookingForm({
   const handleOccasionChange = (e) => setOccasion(e.target.value);
 
   const noAvailableTimes = availableTimes.length === 0;
-  
+
   const isNameValid = name !== "";
   const isEmailValid =
     email !== "" && email.includes("@") && email.includes(".");
   const isPhoneValid = phone !== "" && phone.length >= 8 && phone.length <= 15;
   const isDateValid = date !== "" && new Date(date) >= new Date(today);
-  const isTimeValid = time !== "" && availableTimes.includes(time) && !noAvailableTimes;
+  const isTimeValid =
+    time !== "" && availableTimes.includes(time) && !noAvailableTimes;
   const isGuestsValid = guests !== "" && guests >= 1 && guests <= 10;
-
 
   const isFormValid =
     isNameValid &&
@@ -199,7 +199,12 @@ function BookingForm({
         errorMessage=""
       />
 
-      <Button type="submit" colorScheme="yellow" disabled={!isFormValid}>
+      <Button
+        type="submit"
+        colorScheme="yellow"
+        disabled={!isFormValid}
+        aria-label={!isFormValid ? "Book Now (form incomplete)" : "Book Now"}
+      >
         Book Now
       </Button>
       <Alert

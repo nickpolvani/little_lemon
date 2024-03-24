@@ -8,12 +8,11 @@ function BookingPage({
   handleBookingConfirmed,
 }) {
   return (
-    <Container maxW="container.xl" p={5}>
-      <VStack spacing={8}>
+    <Container maxW="container.xl" p={"1rem"}>
+      <VStack spacing={"1rem"}>
         <Box
-          p={5}
+          p={"1rem"}
           shadow="md"
-          borderWidth="1px"
           borderRadius="lg"
           bg="teal.100"
         >
