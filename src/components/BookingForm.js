@@ -11,19 +11,24 @@ import {
   Text,
   Alert,
   AlertIcon,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { PhoneIcon } from "@chakra-ui/icons";
 
 import { submitBooking } from "../api/api";
 
-function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBookingConfirmed }) {
+function BookingForm({
+  availableTimes,
+  setAvailableTimes,
+  dateChange,
+  handleBookingConfirmed,
+}) {
   // State variables for each form field
   const today = new Date().toISOString().split("T")[0];
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
   const [date, setDate] = useState(today);
   const [time, setTime] = useState(availableTimes[0]);
   const [guests, setGuests] = useState(1);
@@ -50,7 +55,15 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
           setAvailableTimes({ type: "remove", payload: time });
           // Show a success message
           setStatus("success");
-          handleBookingConfirmed({name, email, phone, date, time, guests, occasion});
+          handleBookingConfirmed({
+            name,
+            email,
+            phone,
+            date,
+            time,
+            guests,
+            occasion,
+          });
         } else {
           // Show an error message
           setStatus("error");
@@ -60,7 +73,6 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
         console.error(err);
         setStatus("error");
       });
-
   }
 
   useEffect(() => {
@@ -88,7 +100,7 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
       m="auto"
       onSubmit={handleSubmit}
     >
-      <FormControl>
+      <FormControl isRequired isInvalid={name === ""}>
         <FormLabel htmlFor="name">Name</FormLabel>
         <Input
           required={true}
@@ -98,8 +110,14 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
           onChange={handleNameChange}
           placeholder="John Doe"
         />
+        {name === "" && (
+          <FormErrorMessage>This field is required.</FormErrorMessage>
+        )}
       </FormControl>
-      <FormControl>
+      <FormControl
+        isRequired
+        isInvalid={email === "" || !email.includes("@") || !email.includes(".")}
+      >
         <FormLabel htmlFor="email">Email</FormLabel>
         <Input
           required={true}
@@ -109,9 +127,17 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
           onChange={handleEmailChange}
           placeholder={"john.doe@email.com"}
         />
+        {email === "" ? (
+          <FormErrorMessage>This field is required.</FormErrorMessage>
+        ) : !email.includes("@") || !email.includes(".") ? (
+          <FormErrorMessage>Invalid email address.</FormErrorMessage>
+        ) : null}
       </FormControl>
 
-      <FormControl>
+      <FormControl
+        isRequired
+        isInvalid={phone === "" || phone.length < 8 || phone.length > 15}
+      >
         <FormLabel htmlFor="phone">Phone</FormLabel>
         <InputGroup>
           <InputLeftElement
@@ -127,9 +153,19 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
             placeholder="+44 123456789"
           />
         </InputGroup>
+        {phone === "" ? (
+          <FormErrorMessage>This field is required.</FormErrorMessage>
+        ) : phone.length < 8 || phone.length > 15 ? (
+          <FormErrorMessage>
+            Invalid phone number, Length must be between 8 and 15.
+          </FormErrorMessage>
+        ) : null}
       </FormControl>
 
-      <FormControl>
+      <FormControl
+        isRequired
+        isInvalid={date === "" || new Date(date) < new Date(today)}
+      >
         <FormLabel htmlFor="res-date">Choose date</FormLabel>
         <Input
           type="date"
@@ -139,8 +175,20 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
           min={today}
           required={true}
         />
+        {date === "" ? (
+          <FormErrorMessage>This field is required.</FormErrorMessage>
+        ) : new Date(date) < new Date(today) ? (
+          <FormErrorMessage>
+            Invalid date, must be today or later.
+          </FormErrorMessage>
+        ) : null}
       </FormControl>
-      <FormControl isInvalid={noAvailableTimes}>
+      <FormControl
+        isRequired
+        isInvalid={
+          noAvailableTimes || time === "" || !availableTimes.includes(time)
+        }
+      >
         <FormLabel htmlFor="res-time">Choose time</FormLabel>
         <Select
           id="res-time"
@@ -150,10 +198,18 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
         >
           {timeOptions(availableTimes)}
         </Select>
-        {noAvailableTimes && <Text color="red.500">No available times.</Text>}
+
+        {noAvailableTimes ? (
+          <FormErrorMessage>No available times.</FormErrorMessage>
+        ) : time === "" || !availableTimes.includes(time) ? (
+          <FormErrorMessage>Please select a valid time.</FormErrorMessage>
+        ) : null}
       </FormControl>
 
-      <FormControl>
+      <FormControl
+        isRequired
+        isInvalid={guests === "" || guests < 1 || guests > 10}
+      >
         <FormLabel htmlFor="guests">Number of guests</FormLabel>
         <Input
           required={true}
@@ -165,6 +221,11 @@ function BookingForm({ availableTimes, setAvailableTimes, dateChange, handleBook
           value={guests}
           onChange={handleGuestsChange}
         />
+        {guests === "" ? (
+          <FormErrorMessage>This field is required.</FormErrorMessage>
+        ) : guests < 1 || guests > 10 ? (
+          <FormErrorMessage>Invalid number of guests, must be between 1 and 10.</FormErrorMessage>
+        ) : null}
       </FormControl>
 
       <FormControl>
