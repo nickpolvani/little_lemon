@@ -1,0 +1,39 @@
+/* grid layout with 2 columns, 1 per article */
+/* .call-to-action {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5em;
+    padding: 1em;
+    align-items: center;
+    background-color: #505d57;
+}
+
+.call-to-action-image>img {
+    max-width: 200px;
+}
+
+.call-to-action-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding-left: 5em;
+
+}
+
+.call-to-action-text>h2 {
+    color: #ffd700;
+}
+
+.call-to-action-text>h3,
+p {
+    color: white;
+}
+
+#reserve-table-btn {
+    background-color: #ffd700;
+    color: black;
+    font-weight: bold;
+    padding: 1em 1em;
+    max-width: fit-content;
+} */
