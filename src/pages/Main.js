@@ -4,11 +4,12 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import BookingPage from "../pages/BookingPage";
+import Page from "./Page";
+import HomePage from "./HomePage";
+import BookingPage from "./BookingPage";
 import { useReducer, useEffect, useState } from "react";
 import { fetchAPI } from "../api/api";
-import ConfirmedBooking from "./ConfirmedBooking";
+import ConfirmedBooking from "../components/ConfirmedBooking";
 
 function updateAvailableTimes(state, action) {
   switch (action.type) {
@@ -72,6 +73,7 @@ function Main() {
 
   return (
     <>
+    <Page>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -93,6 +95,7 @@ function Main() {
         </Routes>
         <BookingHandler formData={formData} setFormData={setFormData} />
       </Router>
+    </Page>
     </>
   );
 }

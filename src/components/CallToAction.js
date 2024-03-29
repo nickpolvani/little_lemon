@@ -1,5 +1,5 @@
 
-import RestaurantImg from "../images/restauranfood.jpg"
+import RestaurantImg from "../images/food.jpg"
 import CustomButton from './CustomButton'
 import { Flex, Box, Image, Text, VStack, HStack, CardBody, Heading } from '@chakra-ui/react';
 

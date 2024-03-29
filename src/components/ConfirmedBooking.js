@@ -1,4 +1,5 @@
-import { Card, Heading, Text, VStack, Flex } from "@chakra-ui/react";
+import { Card, Heading, Text, VStack, Flex, Icon } from "@chakra-ui/react";
+import { CheckCircleIcon } from "@chakra-ui/icons";
 
 // Custom component for row items
 const DetailRow = ({ label, value }) => {
@@ -24,8 +25,11 @@ export default function ConfirmedBooking({
   return (
     <Flex justify="center" align="center" p="2rem">
       <Card bg="green.100" p="3rem" maxW="35rem">
-        <VStack align="stretch">
-          <Heading>Booking Confirmation</Heading>
+        <VStack align="center">
+          <Icon as={CheckCircleIcon} w={50} h={50} color="green.500" />
+          <Heading size={"lg"} align="center">
+            You have successfully confirmed your reservation
+          </Heading>
           <DetailRow label="Name" value={name} />
           <DetailRow label="Email" value={email} />
           <DetailRow label="Phone" value={phone} />

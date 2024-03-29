@@ -1,78 +1,81 @@
-import React from 'react';
-// import '../style/Footer.css'; // Make sure to create a corresponding CSS file for styling
-import Logo from '../images/Logo.svg'
-import { Flex, Link, Image, VStack, Hstack, HStack, Text, Heading} from '@chakra-ui/react';
-import { NavLink } from './Nav';
+import React from "react";
+import {
+  Flex,
+  Box,
+  Link,
+  Image,
+  VStack,
+  HStack,
+  Text,
+  Heading,
+} from "@chakra-ui/react";
+import { EmailIcon, PhoneIcon, AtSignIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import Logo from "../images/little_lemon_logo.png";
+
+function FooterNavLink({ children, href }) {
+  return (
+    <Link
+      href={href}
+      color="white"
+      _hover={{ fontWeight: "bold", textDecoration: "underline" }}
+    >
+      {children}
+    </Link>
+  );
+}
 
 function Footer() {
   return (
-
-    <HStack
-      as="nav"
+    <Flex
+      as="footer"
       align="start"
       wrap="wrap"
-      gap="4rem"
-      padding="1rem"
-      bg="white"
-      color="black"
-      boxShadow="md"
+      justify="space-around"
+      padding="2rem"
+      bg="#505d57"
+      color="white"
+      gap="2rem"
     >
-
-      <Image src={Logo} alt="Logo" />
-      <VStack
-        align={"start"}
-        gap={"1rem"}>
-          <Heading >Navigation</Heading>
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/">About</NavLink>
-        <NavLink href="/"> Menu</NavLink>
-        <NavLink href="/"> Reservations</NavLink>
-        <NavLink href="/"> Order Online</NavLink>
-        <NavLink href="/"> Login</NavLink>
-      </VStack>
-      <VStack
-      align="start"
-      gap={"1rem"}
-      >
-        <Heading>Contact</Heading>
-        <Text>Address</Text>
-        <Text>Texthone number</Text>
-        <Text>Email</Text>
-      </VStack>
-      <VStack
-            align="start"
-            gaText={"1rem"}>
-        <Heading>Social Media Links</Heading>
-        <Text>Address</Text>
-        <Text>Texthone number</Text>
-        <Text>Email</Text>
-        <Text>Instagram</Text>
+      <VStack align="start" gap="1rem">
+        <Image src={Logo} alt="Little Lemon Logo" boxSize="100px" />
+        <Text fontStyle="italic">Bringing a slice of Italy to Chicago.</Text>
       </VStack>
 
+      <VStack align="start" gap="1rem">
+        <Heading size="md">Navigation</Heading>
+        <FooterNavLink href="/">Home</FooterNavLink>
+        <FooterNavLink href="/">About Us</FooterNavLink>
+        <FooterNavLink href="/">Menu</FooterNavLink>
+        <FooterNavLink href="/">Reservations</FooterNavLink>
+        <FooterNavLink href="/">Order Online</FooterNavLink>
+        <FooterNavLink href="/">Login</FooterNavLink>
+      </VStack>
 
-    </HStack>
+      <VStack align="start" gap="1rem">
+        <Heading size="md">Contact Us</Heading>
+        <Text>
+          <AtSignIcon /> littlelemon@restaurant.com
+        </Text>
+        <Text>
+          <PhoneIcon /> +1 312-555-0198
+        </Text>
+        <Text>1234 Pasta Lane, Chicago, IL</Text>
+      </VStack>
 
-    //   <img src={Logo} alt="Logo" />
-
-
-
-    //   <li><a href="/">Home</a></li>
-    //   <li><a href="/about">About</a></li>
-    //   <li><a href="/menu">Menu</a></li>
-    //   <li><a href="/reservations">Reservations</a></li>
-    //   <li><a href="/order-online">Order Online</a></li>
-    //   <li><a href="/login">Login</a></li>
-
-    // <h3>Contact</h3>
-    // <p>Address</p>
-    // <p>Phone number</p>
-    // <p>Email</p>
-
-    // <h3>Social Media Links</h3>
-    // <p>Address</p>
-    // <p>Phone number</p>
-    // <p>Email</p>
-
+      <VStack align="start" gap="1rem">
+        <Heading size="md">Follow Us</Heading>
+        <Link href="https://instagram.com/littlelemon" isExternal>
+          Instagram <ExternalLinkIcon mx="2px" />
+        </Link>
+        <Link href="https://facebook.com/littlelemon" isExternal>
+          Facebook <ExternalLinkIcon mx="2px" />
+        </Link>
+        <Link href="https://twitter.com/littlelemon" isExternal>
+          Twitter <ExternalLinkIcon mx="2px" />
+        </Link>
+      </VStack>
+    </Flex>
   );
 }
 
