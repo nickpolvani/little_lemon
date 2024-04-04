@@ -1,5 +1,4 @@
 import {
-  HashRouter as Router,
   Routes,
   Route,
   useNavigate,
@@ -73,29 +72,29 @@ function Main() {
 
   return (
     <>
-    <Page>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/booking"
-            element={
-              <BookingPage
-                availableTimes={availableTimes}
-                setAvailableTimes={setAvailableTimes}
-                dateChange={handleDateChange}
-                handleBookingConfirmed={handleBookingConfirmed}
-              />
-            }
-          />
-          <Route
-            path="/booking_confirmation"
-            element={<ConfirmedBooking {...formData} />}
-          />
-        </Routes>
-        <BookingHandler formData={formData} setFormData={setFormData} />
-      </Router>
-    </Page>
+      <Page>
+     
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/booking"
+              element={
+                <BookingPage
+                  availableTimes={availableTimes}
+                  setAvailableTimes={setAvailableTimes}
+                  dateChange={handleDateChange}
+                  handleBookingConfirmed={handleBookingConfirmed}
+                />
+              }
+            />
+            <Route
+              path="/booking_confirmation"
+              element={<ConfirmedBooking {...formData} />}
+            />
+          </Routes>
+          <BookingHandler formData={formData} setFormData={setFormData} />
+       
+      </Page>
     </>
   );
 }

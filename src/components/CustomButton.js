@@ -1,12 +1,12 @@
 import { Button as ChakraButton } from '@chakra-ui/button';
+import {Link} from "react-router-dom";
 
 
-
-function CustomButton({ href, children, ...props }) {
+function CustomButton({ to, children, ...props }) {
     return (
         <ChakraButton
-            as="a"
-            href={href}
+            as={Link}
+            to={to}
             fontWeight="bold"
             size="md"
             padding="0.75rem"

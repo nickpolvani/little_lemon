@@ -1,9 +1,9 @@
 import React from "react";
 import {
   Flex,
-  Link,
   Image,
   IconButton,
+  Link as ChakraLink,
   useDisclosure,
   Drawer,
   DrawerBody,
@@ -14,14 +14,16 @@ import {
   Box,
   Stack,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../images/Logo.svg";
 
 function NavLink({ children, href }) {
   return (
-    <Link
-      href={href}
+    <ChakraLink
+      as={Link}
+      to={href}
       px={2}
       py={1}
       rounded={"md"}
@@ -33,7 +35,7 @@ function NavLink({ children, href }) {
       display="block" // Makes sure links are block-level for vertical stacking in the drawer
     >
       {children}
-    </Link>
+    </ChakraLink>
   );
 }
 
@@ -42,23 +44,22 @@ function Nav() {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
-  const controlNavbar = () => {
-    // Check for the current scroll position to be greater than last scroll position.
-    const currentScrollTop =
-      window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScrollTop > lastScrollTop) {
-      // If user is scrolling down, hide the navbar
-      setIsVisible(false);
-    } else {
-      // If user is scrolling up, show the navbar
-      setIsVisible(true);
-    }
-    // Setting the lastScrollTop for the next scroll event
-    setLastScrollTop(currentScrollTop);
-  };
-
   useEffect(() => {
+    const controlNavbar = () => {
+      // Check for the current scroll position to be greater than last scroll position.
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+        // If user is scrolling down, hide the navbar
+        setIsVisible(false);
+      } else {
+        // If user is scrolling up, show the navbar
+        setIsVisible(true);
+      }
+      // Setting the lastScrollTop for the next scroll event
+      setLastScrollTop(currentScrollTop);
+    };
     window.addEventListener("scroll", controlNavbar);
 
     return () => {

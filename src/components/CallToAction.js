@@ -48,7 +48,7 @@ function CallToAction() {
             favorite Italian dishes without the wait, anytime you desire.
           </Text>
           {/* </CardBody> */}
-          <CustomButton href="/booking"> Reserve a Table</CustomButton>
+          <CustomButton to="/booking"> Reserve a Table</CustomButton>
         </VStack>
         <Box w="80%" position="relative">
           {" "}

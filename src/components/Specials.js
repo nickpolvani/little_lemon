@@ -6,7 +6,6 @@ import CustomButton from "./CustomButton";
 import {
   Card,
   CardHeader,
-  CardBody,
   CardFooter,
   Image,
 } from "@chakra-ui/react";

@@ -1,22 +1,20 @@
 import React from "react";
 import {
   Flex,
-  Box,
-  Link,
   Image,
   VStack,
-  HStack,
   Text,
   Heading,
 } from "@chakra-ui/react";
-import { EmailIcon, PhoneIcon, AtSignIcon } from "@chakra-ui/icons";
+import {Link} from "react-router-dom";
+import {PhoneIcon, AtSignIcon } from "@chakra-ui/icons";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Logo from "../images/little_lemon_logo.png";
 
 function FooterNavLink({ children, href }) {
   return (
     <Link
-      href={href}
+      to={href}
       color="white"
       _hover={{ fontWeight: "bold", textDecoration: "underline" }}
     >
@@ -47,7 +45,7 @@ function Footer() {
         <FooterNavLink href="/">Home</FooterNavLink>
         <FooterNavLink href="/">About Us</FooterNavLink>
         <FooterNavLink href="/">Menu</FooterNavLink>
-        <FooterNavLink href="/">Reservations</FooterNavLink>
+        <FooterNavLink href="/booking">Reservations</FooterNavLink>
         <FooterNavLink href="/">Order Online</FooterNavLink>
         <FooterNavLink href="/">Login</FooterNavLink>
       </VStack>
