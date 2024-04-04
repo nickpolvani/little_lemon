@@ -1,14 +1,10 @@
-import {
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Page from "./Page";
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 import { useReducer, useEffect, useState } from "react";
 import { fetchAPI } from "../api/api";
-import ConfirmedBooking from "../components/ConfirmedBooking";
+import ConfirmedBooking from "./ConfirmedBooking";
 
 function updateAvailableTimes(state, action) {
   switch (action.type) {
@@ -24,21 +20,6 @@ function updateAvailableTimes(state, action) {
   }
 }
 
-// The new component that uses useNavigate
-function BookingHandler({ formData, setFormData }) {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (Object.keys(formData).length !== 0) {
-      // Simple check to see if formData is not empty
-      navigate("/booking_confirmation");
-    }
-  }, [formData, navigate]);
-
-  // Render nothing or null since this component is only for handling side effects
-  return null;
-}
-
 function Main() {
   const [initAvailableTimes, setInitAvailableTimes] = useState([]);
 
@@ -48,11 +29,19 @@ function Main() {
   );
 
   const [formData, setFormData] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   function handleBookingConfirmed(data) {
     setFormData(data);
-    console.log(data);
+    setIsModalOpen(true);
   }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setFormData({});
+    navigate("/");
+  };
 
   useEffect(() => {
     fetchAPI().then((res) => {
@@ -73,27 +62,26 @@ function Main() {
   return (
     <>
       <Page>
-     
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route
-              path="/booking"
-              element={
-                <BookingPage
-                  availableTimes={availableTimes}
-                  setAvailableTimes={setAvailableTimes}
-                  dateChange={handleDateChange}
-                  handleBookingConfirmed={handleBookingConfirmed}
-                />
-              }
-            />
-            <Route
-              path="/booking_confirmation"
-              element={<ConfirmedBooking {...formData} />}
-            />
-          </Routes>
-          <BookingHandler formData={formData} setFormData={setFormData} />
-       
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/booking"
+            element={
+              <BookingPage
+                availableTimes={availableTimes}
+                setAvailableTimes={setAvailableTimes}
+                dateChange={handleDateChange}
+                handleBookingConfirmed={handleBookingConfirmed}
+              />
+            }
+          />
+        </Routes>
+
+        <ConfirmedBooking
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          {...formData}
+        />
       </Page>
     </>
   );
