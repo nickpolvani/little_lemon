@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/little_lemon/static/css/main.664e26ee.css",
+    "main.js": "/little_lemon/static/js/main.367dbe55.js",
+    "static/js/787.0e637884.chunk.js": "/little_lemon/static/js/787.0e637884.chunk.js",
+    "static/media/Mario_and_Adrian.jpg": "/little_lemon/static/media/Mario_and_Adrian.6ba0e06bfa9c1ea75109.jpg",
+    "static/media/greek_salad.jpg": "/little_lemon/static/media/greek_salad.bed423a1fab5b210e347.jpg",
+    "static/media/food.jpg": "/little_lemon/static/media/food.61d9bdc9de3b3f497602.jpg",
+    "static/media/restaurant.jpg": "/little_lemon/static/media/restaurant.324d0f99bdf19400a0f7.jpg",
+    "static/media/marilyn.jpg": "/little_lemon/static/media/marilyn.799185d9fe5335266193.jpg",
+    "static/media/little_lemon_logo.png": "/little_lemon/static/media/little_lemon_logo.6115735fd969ed16bae8.png",
+    "static/media/Logo.svg": "/little_lemon/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "static/media/bruschetta.jpg": "/little_lemon/static/media/bruschetta.1c9e86097f7d83204478.jpg",
+    "static/media/spongebob.jpeg": "/little_lemon/static/media/spongebob.1db18364272698a4f105.jpeg",
+    "index.html": "/little_lemon/index.html",
+    "main.664e26ee.css.map": "/little_lemon/static/css/main.664e26ee.css.map",
+    "main.367dbe55.js.map": "/little_lemon/static/js/main.367dbe55.js.map",
+    "787.0e637884.chunk.js.map": "/little_lemon/static/js/787.0e637884.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.664e26ee.css",
+    "static/js/main.367dbe55.js"
+  ]
+}
