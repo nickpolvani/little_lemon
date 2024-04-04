@@ -2,6 +2,20 @@
 
 This repository contains the source code for the "Little Lemon" restaurant website, a fictitious restaurant created as part of the Coursera Certification for Front-End Developer offered by Meta. The project showcases a modern web application built with React, demonstrating key front-end development skills and technologies.
 
+You can try out the Front End application at this [link](https://nickpolvani.github.io/little_lemon/).
+
+The application at the moment supports the functionality to book a table. View pages below:
+
+### Landing Page
+
+<img src="images_readme/landing_page.png" width="800">
+
+### Reservations Page
+<img src="images_readme/reservations.png" width="800">
+
+### Booking Confirmation Page
+<img src="images_readme/booking_confirmation.png" width="800">
+
 ## Getting Started
 
 To get this project up and running on your local machine, follow the steps below. Make sure you have [Node.js](https://nodejs.org/) installed before starting.
@@ -34,10 +48,10 @@ This command launches the test runner. See the section about [running tests](htt
 
 ### Building for Production
 
-When you're ready to deploy the app or test it in a production-like environment, build the app with:
+When you're ready to deploy the app to Github Pages, build the app for production:
 
 ```bash
 npm run build
 ```
 
-This command builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified, and filenames include hashes. Your app is now ready to be deployed!
+In case you would like to fork the repository and deploy to your own website, you should edit the `homepage` field in the `package.json` file to match your repository name.
